@@ -35,8 +35,8 @@ public class automobile extends Policy {
         throw new IllegalArgumentException("Error, Model can not be empty");
     };
     public String toString(){
-        return super.toString() 
-        +  "Vehicle ID: " + this.getVIN() + " | "
+        return super.toString()
+        + "Vehicle ID: " + this.getVIN() + " | "
         + "Make: " + this.getMake() + " | "
         + "Model: " + this.getModel() + "\n";
     }

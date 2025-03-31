@@ -24,6 +24,9 @@ public String getNumber(){return this.number;}
 public String getOwner(){return this.owner;}
 public double getYearlyPremium(){return this.yearlyPremium;}
 public static int getNumOfPolicies(){return numOfPolicies;}
+public static void updateNumOfPolicy() {
+    numOfPolicies--;
+}
 
 //set
 public void setNumer( String number){
