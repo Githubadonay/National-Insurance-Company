@@ -36,6 +36,7 @@ public class automobile extends Policy {
     };
     public String toString(){
         return super.toString()
+        +"Your Auto policy is:\n"
         + "Vehicle ID: " + this.getVIN() + " | "
         + "Make: " + this.getMake() + " | "
         + "Model: " + this.getModel() + "\n";

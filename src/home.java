@@ -50,6 +50,7 @@ public class home extends Policy {
     }
     public String toString(){
         return super.toString() 
+        +"Your Home policy is:\n"
         + "Street Address: " + this.getStreetAddress() + " | "
         + "Year Built: " + this.getYearBuilt() + " | "
         + "Deductible: " + this.getDeductible() + "\n";

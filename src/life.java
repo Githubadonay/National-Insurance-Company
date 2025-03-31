@@ -36,6 +36,7 @@ public class life extends Policy {
     }
     public String toString(){
         return super.toString() 
+        +"Your life policy is:\n"
         + "Beneficiary Name: " + this.getBeneficiaryName() + " | "
         + "Face Value: " + this.getFaceValue() + "\n";
     }
