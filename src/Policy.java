@@ -3,23 +3,27 @@ public class Policy{
 private String number;
 private String owner;
 private double yearlyPremium;
+private static int numOfPolicies;
 
 public Policy(){
     this.number = "";
     this.owner ="";
     this.yearlyPremium = 0;
+    numOfPolicies++;
 }
 
 public Policy(String number, String owner, double yearlyPremium ){
     this.number = number;
     this.owner = owner;
     this.yearlyPremium = yearlyPremium;
+    numOfPolicies++;
 }
 
 //get
 public String getNumber(){return this.number;}
 public String getOwner(){return this.owner;}
 public double getYearlyPremium(){return this.yearlyPremium;}
+public static int getNumOfPolicies(){return numOfPolicies;}
 
 //set
 public void setNumer( String number){
