@@ -53,47 +53,108 @@ public class PolicyImp {
     }
 
     public static void AddPolicy(Policy[] allPolicies) {
-        try{
-        String pNumber = JOptionPane.showInputDialog("Enter Policy Number");
-        String pOwner = JOptionPane.showInputDialog("Enter Policy Owner name");
-        double pYearlyPremium = Double.parseDouble(JOptionPane.showInputDialog("Enter the Yearly Premium"));
+        String pNumber = "";
+        String pOwner = "";
+        double pYearlyPremium = 0;
+
+        try {
+            pNumber = JOptionPane.showInputDialog("Enter Policy Number");
+        } catch (IllegalArgumentException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        try {
+            pOwner = JOptionPane.showInputDialog("Enter Policy Owner name");
+        } catch (IllegalArgumentException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        try {
+            pYearlyPremium = Double.parseDouble(JOptionPane.showInputDialog("Enter the Yearly Premium"));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Invalid number format!");
+        }
 
         String choice = JOptionPane.showInputDialog(
                 "Enter the policy you want to add\n1.Automobile Policy\n2.Home Policy\n3.Insurance Policy");
-        //Policy aPolicy = null;
-        
-        if (choice.equals("1")) {
-            String aVIN = JOptionPane.showInputDialog("Enter Automobile VIN number");
-            String aMake = JOptionPane.showInputDialog("Enter Automobile Make");
-            String aModel = JOptionPane.showInputDialog("Enter Automobile Model");
+        // Policy aPolicy = null;
 
+        if (choice.equals("1")) {
+
+            String aVIN = "";
+            String aMake = "";
+            String aModel = "";
+            try {
+                aVIN = JOptionPane.showInputDialog("Enter Automobile VIN number");
+            } catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+
+            try {
+                aMake = JOptionPane.showInputDialog("Enter Automobile Make");
+            } catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+
+            try {
+                aModel = JOptionPane.showInputDialog("Enter Automobile Model");
+            } catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
             allPolicies[Policy.getNumOfPolicies()] = new automobile(pNumber, pOwner,
                     pYearlyPremium, aVIN, aMake,
                     aModel);
+
         } else if (choice.equals("2")) {
+            String hStreetAddress = "";
+            int hYearBuilt = 0;
+            double hDeductible = 0;
 
-            String hStreetAddress = JOptionPane.showInputDialog("Enter Home address: ");
-            int hYearBuilt = Integer.parseInt(JOptionPane.showInputDialog("Enter the year the home was built: "));
-            double hDeductible = Double.parseDouble(JOptionPane.showInputDialog("Enter the home deductuble: "));
+            try {
+                hStreetAddress = JOptionPane.showInputDialog("Enter Home address: ");
 
+            } catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+
+            try {
+                hYearBuilt = Integer.parseInt(JOptionPane.showInputDialog("Enter the year the home was built: "));
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Invalid number format!");
+            } catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+
+            try {
+                hDeductible = Double.parseDouble(JOptionPane.showInputDialog("Enter the home deductuble: "));
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Invalid number format!");
+            } catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
             allPolicies[Policy.getNumOfPolicies()] = new home(pNumber, pOwner,
                     pYearlyPremium, hStreetAddress,
                     hYearBuilt, hDeductible);
-        } else if (choice.equals("3")) {
-            String lBeneficiaryName = JOptionPane.showInputDialog("Enter the life beneficiary name: ");
-            double lFaceValue = Double.parseDouble(JOptionPane.showInputDialog("Enter the life face value: "));
 
+        } else if (choice.equals("3")) {
+            String lBeneficiaryName = "";
+            double lFaceValue = 0;
+            try {
+                lBeneficiaryName = JOptionPane.showInputDialog("Enter the life beneficiary name: ");
+            } catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+
+            try {
+                lFaceValue = Double.parseDouble(JOptionPane.showInputDialog("Enter the life face value: "));
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Invalid number format!");
+            } catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
             allPolicies[Policy.getNumOfPolicies()] = new life(pNumber, pOwner,
                     pYearlyPremium, lBeneficiaryName,
                     lFaceValue);
         }
-    }catch(NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Invalid number format.");
-        } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
     }
-    
 
     public static void viewPolicies(Policy[] allPolicies) {
         String output = "";

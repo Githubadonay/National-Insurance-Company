@@ -34,10 +34,11 @@ public class life extends Policy {
         else
             throw new IllegalArgumentException("Error, Face Value can not be empty!!");
     }
-    public String toString(){
-        return super.toString() 
-        +"Your life policy is:\n"
-        + "Beneficiary Name: " + this.getBeneficiaryName() + " | "
-        + "Face Value: " + this.getFaceValue() + "\n";
+
+    public String toString() {
+        return super.toString()
+                + "Your life policy is:\n"
+                + "Beneficiary Name: " + this.getBeneficiaryName() + " | "
+                + "Face Value: " + this.getFaceValue() + "\n";
     }
 }

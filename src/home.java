@@ -48,11 +48,12 @@ public class home extends Policy {
         else
             throw new IllegalArgumentException("Error, Deductible can not be empty");
     }
-    public String toString(){
-        return super.toString() 
-        +"Your Home policy is:\n"
-        + "Street Address: " + this.getStreetAddress() + " | "
-        + "Year Built: " + this.getYearBuilt() + " | "
-        + "Deductible: " + this.getDeductible() + "\n";
+
+    public String toString() {
+        return super.toString()
+                + "Your Home policy is:\n"
+                + "Street Address: " + this.getStreetAddress() + " | "
+                + "Year Built: " + this.getYearBuilt() + " | "
+                + "Deductible: " + this.getDeductible() + "\n";
     }
 }
